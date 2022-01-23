@@ -62,14 +62,12 @@ curl -X PUT http://localhost:300/api/hello
 ## Status: 403
 ## { "error": 403, "message": "Access Forbidden", "data": { "minrole": [ "editor" ] } }
 
-curl -X DELETE http://localhost:300/api/hello
-## Error w/ stack printed to server's console or logger function
-## Status: 500
-## { "error": 500, "message": "Internal Server Error" }
-
 curl -X PATCH http://localhost:300/api/hello
 ## Status: 405
 ## { "error": 405, "message": "Method PATCH Not Supported" }
 
-
+curl -X DELETE http://localhost:300/api/hello
+## Error w/ stack printed to server's console or logger function
+## Status: 500
+## { "error": 500, "message": "Internal Server Error" }
 ```

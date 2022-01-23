@@ -1,6 +1,6 @@
 {
   "name": "next-api-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "API Wrapper & Error Boundary for Next.js",
   "author": "ΔO - David Obdržálek <david@deltazero.cz>",
   "license": "ISC",
@@ -11,7 +11,11 @@
     "build": "tsc -b",
     "prepare": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "nextjs",
+    "nodejs",
+    "api"
+  ],
   "devDependencies": {
     "@types/chai": "latest",
     "@types/mocha": "latest",

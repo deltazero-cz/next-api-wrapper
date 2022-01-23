@@ -20,7 +20,7 @@ export default function Wrapper(methods : ApiMethods, options ?: WrapperOptions)
         return
 
       // send response
-      res.json(output)
+      res.send(JSON.stringify(output))
 
     } catch (e: Exception | Error | any) {
       if (e instanceof Exception || e?.isApiException) {

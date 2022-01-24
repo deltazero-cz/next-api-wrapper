@@ -15,7 +15,7 @@ export default function Wrapper(methods : ApiMethods, options ?: WrapperOptions)
           ? await handler(req, res)
           : handler
 
-      // stop when response is alredy sent
+      // stop if response is alredy sent
       if (res.writableEnded)
         return
 
@@ -23,12 +23,12 @@ export default function Wrapper(methods : ApiMethods, options ?: WrapperOptions)
       res.send(JSON.stringify(output))
 
     } catch (e: Exception | Error | any) {
-      if (e instanceof Exception || e?.isApiException) {
 
-        // response for Exception
+      // response for Exception
+      if (e instanceof Exception || e?.isApiException) {
         const { message, statusCode, data } = e
         res.statusMessage = normalizeStatusMessage(message)
-        res.statusCode = Math.max(400, Math.min(499, statusCode))
+        res.statusCode = Math.max(400, Math.min(499, statusCode)) ?? 400
         res.json({
           message,
           error: res.statusCode,
@@ -37,9 +37,8 @@ export default function Wrapper(methods : ApiMethods, options ?: WrapperOptions)
 
         options?.errorLogger?.(e, req, res)
 
+      // response for Error
       } else {
-
-        // response for Error
         res.statusMessage = 'Internal Server Error'
         res.statusCode = 500
         res.json({

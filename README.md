@@ -41,7 +41,7 @@ export default Wrapper({
   
   // throw an error
   DELETE: async req => {
-    throw new Error("You Can't Delete")
+    throw new Error("You Can't Do That")
   }
 })
 
@@ -71,3 +71,5 @@ curl -X DELETE http://localhost:300/api/hello
 ## Status: 500
 ## { "error": 500, "message": "Internal Server Error" }
 ```
+
+Read more at [Medium.com](https://medium.com/@deltazero/error-boundary-for-next-js-api-routes-dd6cc8f72962)

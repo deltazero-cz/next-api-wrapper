@@ -7,7 +7,7 @@ export default class Exception extends Error {
     super(message)
     this.isApiException = true
     this.name = 'Exception'
-    this.statusCode = statusCode
+    this.statusCode = Math.max(400, Math.min(499, statusCode))
     this.data = data
   }
 }

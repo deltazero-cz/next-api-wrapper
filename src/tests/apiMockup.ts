@@ -73,7 +73,9 @@ class Response {
   statusMessage?: string
   statusCode?: string
 
+  send(input: string) { this.response = input }
   json(input: string) { this.response = JSON.stringify(input) }
   // noinspection JSUnusedLocalSymbols
   setHeader(key: string, val: string) {}
+  getHeaders() { return {} }
 }

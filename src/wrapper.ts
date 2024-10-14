@@ -20,10 +20,11 @@ export default function Wrapper(methods : ApiMethods, options ?: WrapperOptions)
         return
 
       // send response
+      if (!res.getHeaders()?.['Content-Type'])
+        res.setHeader('Content-Type', 'application/json; charset=utf-8')
       res.send(JSON.stringify(output))
 
     } catch (e: Exception | Error | any) {
-
       // response for Exception
       if (e instanceof Exception || e?.isApiException) {
         const { message, statusCode, data } = e
